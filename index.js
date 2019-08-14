@@ -39,7 +39,7 @@ const c = new Crawler({
                         href=`${domain}/${href}`;
                     }
                 }
-                arr.push({uri:href,title:text,keyword,domain});
+                arr.push({uri:href,title:text,domain});
             }
             // console.log(`$a:${$a.length}`);
             console.log(`arr:${arr.length}`);
@@ -67,6 +67,7 @@ function queue({title,uri,keyword,domain}){
     // if(!keyword)keyword=Url.hostname.match(/^\w+?\.(\w+)\.\w+$/)[1];
     if(!domain)domain=Url.origin;
     urls[uri]={title,uri};
+    console.log(uri,title,domain)
     c.queue({
         uri,
         title,
@@ -83,5 +84,5 @@ function fsWrite(arr=urls){
     // console.log(`arr的length:${Object.keys(arr).length}`)
 }
 queue({
-    uri:'http://www.youtube.com'
+    uri:'https://www.bannedbook.org'
 });
